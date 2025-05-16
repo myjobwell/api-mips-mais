@@ -1,4 +1,4 @@
-package com.adventistas.apimipsmais.controller;
+package com.adventistas.apimipsmais.controller.divisao;
 
 import com.adventistas.apimipsmais.dto.DivisaoDTO;
 import com.adventistas.apimipsmais.service.DivisaoService;
@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
-@RequestMapping("/api/divisoes")
-public class DivisaoController {
+@RequestMapping("/api/private/divisoes")
+public class DivisaoPrivadaController {
 
     @Autowired
     private DivisaoService service;
@@ -30,17 +28,5 @@ public class DivisaoController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<DivisaoDTO> findById(@PathVariable Long id) {
-        return ResponseEntity.ok(service.findById(id));
-    }
-
-    @GetMapping
-    public ResponseEntity<List<DivisaoDTO>> findAll() {
-        return ResponseEntity.ok(service.findAll());
-    }
 }
-
-
 
