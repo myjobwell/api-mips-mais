@@ -1,7 +1,7 @@
-package com.adventistas.apimipsmais.controller.divisao;
+package com.adventistas.apimipsmais.controller.uniao;
 
-import com.adventistas.apimipsmais.dto.DivisaoDTO;
-import com.adventistas.apimipsmais.service.DivisaoService;
+import com.adventistas.apimipsmais.dto.UniaoDTO;
+import com.adventistas.apimipsmais.service.UniaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/private/divisoes")
-public class DivisaoPrivadaController {
+@RequestMapping("/api/private/unioes")
+public class UniaoPrivadaController {
 
     @Autowired
-    private DivisaoService service;
+    private UniaoService service;
 
     @PostMapping
-    public ResponseEntity<DivisaoDTO> create(@RequestBody DivisaoDTO dto) {
+    public ResponseEntity<UniaoDTO> create(@RequestBody UniaoDTO dto) {
         return ResponseEntity.ok(service.save(dto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<DivisaoDTO> update(@PathVariable Long id, @RequestBody DivisaoDTO dto) {
+    public ResponseEntity<UniaoDTO> update(@PathVariable Long id, @RequestBody UniaoDTO dto) {
         return ResponseEntity.ok(service.update(id, dto));
     }
 
@@ -31,14 +31,16 @@ public class DivisaoPrivadaController {
         return ResponseEntity.noContent().build();
     }
 
+    // 👇 Faltava isso aqui:
     @GetMapping
-    public ResponseEntity<List<DivisaoDTO>> findAll() {
+    public ResponseEntity<List<UniaoDTO>> findAll() {
         return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<DivisaoDTO> findById(@PathVariable Long id) {
+    public ResponseEntity<UniaoDTO> findById(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 }
+
 
