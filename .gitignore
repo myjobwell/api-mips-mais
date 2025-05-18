@@ -35,3 +35,5 @@ E:\DEV_PROJECTS\api-mips-mais\src\main\resources\application-dev.properties
 
 ### VS Code ###
 .vscode/
+/deploy-to-vm.sh
+/Dockerfile
