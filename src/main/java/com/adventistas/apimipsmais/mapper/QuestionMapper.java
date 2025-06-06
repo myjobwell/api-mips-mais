@@ -1,3 +1,22 @@
+/*
+package com.adventistas.apimipsmais.mapper;
+
+import com.adventistas.apimipsmais.dto.mongo.QuestionDTO;
+import com.adventistas.apimipsmais.entity.mongo.Question;
+import org.mapstruct.Mapper;
+
+@Mapper(componentModel = "spring")
+public interface QuestionMapper {
+
+    QuestionDTO toDTO(Question question);
+
+    Question toEntity(QuestionDTO dto);
+}
+*/
+
+
+
+
 package com.adventistas.apimipsmais.mapper;
 
 import com.adventistas.apimipsmais.dto.mongo.QuestionDTO;
@@ -24,6 +43,7 @@ public interface QuestionMapper {
     })
     Question toEntity(QuestionDTO dto);
 }
+
 
 
 
