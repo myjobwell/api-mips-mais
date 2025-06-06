@@ -32,11 +32,22 @@ public class JwtFilter extends OncePerRequestFilter {
         System.out.println("➡️ JwtFilter interceptando: " + path);
 
         // ✅ Ignora endpoints públicos como /auth/login, /auth/register
-        if (path.startsWith("/auth")) {
+        /*if (path.startsWith("/auth")) {
             System.out.println("🚫 Ignorando JwtFilter para caminho público: " + path);
             filterChain.doFilter(request, response);
             return;
+        }*/
+        if (
+                path.startsWith("/auth") ||
+                        path.startsWith("/api/public/") ||
+                        path.startsWith("/api/publico/")
+        ) {
+            System.out.println("⏭️ Ignorando JwtFilter para rota pública: " + path);
+            filterChain.doFilter(request, response);
+            return;
         }
+
+
 
         String authHeader = request.getHeader("Authorization");
         String token = null;

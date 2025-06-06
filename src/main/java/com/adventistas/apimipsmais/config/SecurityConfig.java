@@ -37,12 +37,12 @@ public class SecurityConfig {
                         .requestMatchers("/auth/**").permitAll()
 
                         // 🔓 ROTAS PÚBLICAS - APENAS GET PERMITIDO
-                        .requestMatchers(HttpMethod.GET, "/api/publico/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/public/**").permitAll()
 
                         // 🔒 BLOQUEIA POST/PUT/DELETE mesmo em /api/publico/**
-                        .requestMatchers(HttpMethod.POST, "/api/publico/**").authenticated()
-                        .requestMatchers(HttpMethod.PUT, "/api/publico/**").authenticated()
-                        .requestMatchers(HttpMethod.DELETE, "/api/publico/**").authenticated()
+                        .requestMatchers(HttpMethod.POST, "/api/public/**").authenticated()
+                        .requestMatchers(HttpMethod.PUT, "/api/public/**").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/api/public/**").authenticated()
 
                         // 🔒 TODAS AS ROTAS PRIVATE PRECISAM DE AUTENTICAÇÃO
                         .requestMatchers("/api/private/**").authenticated()
