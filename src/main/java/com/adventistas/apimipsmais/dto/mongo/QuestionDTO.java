@@ -1,9 +1,13 @@
 package com.adventistas.apimipsmais.dto.mongo;
-import lombok.Data;
+
+import lombok.*;
 
 import java.time.OffsetDateTime;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class QuestionDTO {
 
     private Integer idPergunta;
