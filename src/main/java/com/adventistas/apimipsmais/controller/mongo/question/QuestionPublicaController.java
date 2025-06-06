@@ -29,12 +29,20 @@ public class QuestionPublicaController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/id-pergunta/{idPergunta}")
-    public ResponseEntity<QuestionDTO> getByIdPergunta(@PathVariable Integer idPergunta) {
-        return service.getByIdPergunta(idPergunta)
+    @GetMapping("/id-pergunta")
+    public ResponseEntity<QuestionDTO> getByIdPergunta(
+            @RequestParam String cdIdioma,
+            @RequestParam Integer idPergunta
+    ) {
+        return service.getByIdPergunta(cdIdioma, idPergunta)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
+
+
+    ///GET /api/public/questions/id-pergunta?cdIdioma=pt&idPergunta=6
+
+
 
 
 

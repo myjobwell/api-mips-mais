@@ -5,6 +5,7 @@ import com.adventistas.apimipsmais.entity.mongo.Question;
 import com.adventistas.apimipsmais.mapper.QuestionMapper;
 import com.adventistas.apimipsmais.repository.mongo.QuestionRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -17,6 +18,8 @@ import java.util.stream.Collectors;
 public class QuestionService {
 
     private final QuestionRepository repository;
+
+    @Qualifier("questionMapper")
     private final QuestionMapper mapper;
 
     public List<QuestionDTO> getAll() {
@@ -28,6 +31,13 @@ public class QuestionService {
 
     public Optional<QuestionDTO> getById(String id) {
         return repository.findById(id)
+                .map(mapper::toDTO);
+    }
+
+
+
+    public Optional<QuestionDTO> getByIdPergunta(String cdIdioma, Integer idPergunta) {
+        return repository.findByCdIdiomaAndIdPergunta(cdIdioma, idPergunta)
                 .map(mapper::toDTO);
     }
 
@@ -49,12 +59,8 @@ public class QuestionService {
     public void delete(String id) {
         repository.deleteById(id);
     }
-
-    public Optional<QuestionDTO> getByIdPergunta(Integer idPergunta) {
-        return repository.findByIdPergunta(idPergunta)
-                .map(mapper::toDTO);
-    }
 }
+
 
 
 

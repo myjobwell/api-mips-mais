@@ -8,5 +8,7 @@ import java.util.Optional;
 
 @Repository
 public interface QuestionRepository extends MongoRepository<Question, String> {
-    Optional<Question> findByIdPergunta(Integer idPergunta);
+    Optional<Question> findByCdIdiomaAndIdPergunta(String cdIdioma, Integer idPergunta);
+
+
 }

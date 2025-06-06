@@ -37,15 +37,17 @@ public class JwtFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         }*/
+        // ✅ Ignora endpoints públicos corretamente
         if (
                 path.startsWith("/auth") ||
-                        path.startsWith("/api/public/") ||
-                        path.startsWith("/api/publico/")
+                        path.startsWith("/api/public") ||
+                        path.startsWith("/api/publico")
         ) {
             System.out.println("⏭️ Ignorando JwtFilter para rota pública: " + path);
             filterChain.doFilter(request, response);
             return;
         }
+
 
 
 
