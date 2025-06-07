@@ -3,6 +3,7 @@ package com.adventistas.apimipsmais.dto.mongo;
 import lombok.*;
 
 import java.time.OffsetDateTime;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -21,5 +22,5 @@ public class QuestionDTO {
     private Integer nrNivelDificuldade;
     private String cdIdioma;
     private Integer fkArea;
-    private OffsetDateTime dhUltimaModificacao;
+    private Date dhUltimaModificacao;
 }
